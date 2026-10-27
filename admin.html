@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab Dashboard</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; padding: 30px; }
+        .container { max-width: 900px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-top: 5px solid #0056b3; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background-color: #0056b3; color: white; }
+        tr:hover { background-color: #f1f1f1; }
+        .header { display: flex; justify-content: space-between; align-items: center; }
+        a { text-decoration: none; color: #0056b3; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Active Borrow Records</h2>
+            <a href="/">&larr; Back to Issue Desk</a>
+        </div>
+        <table>
+            <tr>
+                <th>Record ID</th>
+                <th>Student Name</th>
+                <th>PRN</th>
+                <th>Item Borrowed</th>
+                <th>Date Issued</th>
+            </tr>
+            {% for record in records %}
+            <tr>
+                <td>{{ record[0] }}</td>
+                <td><strong>{{ record[1] }}</strong></td>
+                <td>{{ record[2] }}</td>
+                <td>{{ record[3] }}</td>
+                <td>{{ record[4] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
